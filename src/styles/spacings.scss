@@ -1,0 +1,25 @@
+$global-spacing-map: (
+  unit-1: 4px,
+  unit-2: 6px,
+  unit-3: 8px,
+  unit-4: 12px,
+  unit-5: 16px,
+  unit-6: 20px,
+  unit-7: 24px,
+  unit-8: 28px,
+  unit-9: 32px,
+  unit-10: 48px,
+  unit-11: 100px,
+);
+
+$spacing-1: map-get($global-spacing-map, "unit-1");
+$spacing-2: map-get($global-spacing-map, "unit-2");
+$spacing-3: map-get($global-spacing-map, "unit-3");
+$spacing-4: map-get($global-spacing-map, "unit-4");
+$spacing-5: map-get($global-spacing-map, "unit-5");
+$spacing-6: map-get($global-spacing-map, "unit-6");
+$spacing-7: map-get($global-spacing-map, "unit-7");
+$spacing-8: map-get($global-spacing-map, "unit-8");
+$spacing-9: map-get($global-spacing-map, "unit-9");
+$spacing-10: map-get($global-spacing-map, "unit-10");
+$spacing-11: map-get($global-spacing-map, "unit-11");

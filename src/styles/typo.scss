@@ -1,0 +1,64 @@
+@import "./variables.scss";
+
+
+@mixin typo-text-regular-1 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 32px;
+  color: $main-text;
+}
+
+@mixin typo-text-regular-2 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 32px;
+  color: $main-text;
+}
+
+@mixin typo-text-regular-3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: $main-text;
+}
+
+@mixin typo-text-link {
+  font-size: 21px;
+  font-weight: 500;
+  color: $main-text;
+}
+
+@mixin typo-header {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 70px;
+  color: $main-text;
+}
+
+@mixin typo-header-1 {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 57px;
+  color: $main-text;
+}
+
+@mixin typo-header-2 {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 83px;
+  color: $main-text;
+}
+
+@mixin typo-header-3 {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 47px;
+  color: $main-text;
+}
+
+@mixin secondary-text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 32px;
+  color: $main-grey;
+}

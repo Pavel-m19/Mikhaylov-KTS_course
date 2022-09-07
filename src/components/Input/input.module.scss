@@ -1,0 +1,21 @@
+@import "styles/main.scss";
+$input-height: 84px;
+
+.input {
+  border: none;
+  padding-left: $spacing-8;
+  height: $input-height;
+  background: #ffffff;
+  @include shadow;
+  @include secondary-text;
+}
+
+.input:focus {
+  outline: solid $main-green $line-weight;
+  border-radius: 0;
+  @include typo-text-regular-1;
+}
+
+.input:disabled {
+  opacity: $hover-opacity;
+}

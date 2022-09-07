@@ -1,0 +1,34 @@
+@import "styles/main.scss";
+$check-box-size: 40px;
+$check-icon-pos: 4px;
+
+.check {
+  position: relative;
+}
+.check_box {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.check_box__image {
+  position: absolute;
+  width: $check-box-size;
+  height: $check-box-size;
+  background-color: #ffffff;
+  @include shadow;
+}
+
+.check-box:checked + .check_box__image {
+  background-image: url(./Check.svg);
+  background-position: center $check-icon-pos;
+  background-repeat: no-repeat;
+}
+
+.check-box:focus + .check_box__image {
+  outline: $main-green solid $line-weight;
+}
+
+.check-box:disabled + .check_box__image {
+  opacity: $hover-opacity;
+}

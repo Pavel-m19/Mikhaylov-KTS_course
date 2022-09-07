@@ -1,0 +1,56 @@
+@import "styles/main.scss";
+$card-width: 370px;
+$visible-lines: 2;
+$card-image-height: 530px;
+$card-image-width: 350px;
+$card-image-margine: 40px;
+$card-title-height: 100px;
+
+.card {
+  padding: $spacing-6;
+  width: $card-width;
+  cursor: pointer;
+}
+.card:hover {
+  @include shadow;
+}
+
+.card_title {
+  margin-top: $spacing-5;
+  height: $card-title-height;
+  display: -webkit-box;
+  display: box;
+  font-style: normal;
+  @include typo-header-3;
+  text-overflow: ellipsis;
+  -ms-line-clamp: $visible-lines;
+  -webkit-line-clamp: $visible-lines;
+  line-clamp: $visible-lines;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+
+.card_content_wrapper {
+  margin-left: auto;
+  width: $card-width;
+  display: flex;
+  flex-direction: column;
+}
+.card_image {
+  object-fit: contain;
+  width: $card-image-width;
+  height: $card-image-height;
+  margin-top: $card-image-margine;
+}
+
+.card_category {
+  margin-top: $spacing-8;
+  font-style: normal;
+  @include secondary-text;
+}
+
+.card_price {
+  padding-top: $spacing-6;
+  @include typo-text-regular-3;
+}

@@ -1,0 +1,50 @@
+@import "styles/main.scss";
+
+svg circle {
+  animation-name: rotation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  fill: transparent;
+  border-radius: 50%;
+  transform-origin: center;
+  stroke-width: 4px;
+  stroke: $main-green;
+}
+
+.loader_size-s {
+  height: 22px;
+  width: 22px;
+  r: 9px;
+  cx: 11px;
+  cy: 11px;
+  stroke-dasharray: 45;
+  stroke-width: 3px;
+}
+
+.loader_size-m {
+  height: 44px;
+  width: 44px;
+  r: 20px;
+  cx: 22px;
+  cy: 22px;
+  stroke-dasharray: 103;
+}
+
+.loader_size-l {
+  height: 66px;
+  width: 66px;
+  r: 30px;
+  cx: 33px;
+  cy: 33px;
+  stroke-dasharray: 156;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

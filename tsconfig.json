@@ -1,5 +1,15 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "components":["components"],
+      "config":["config"],
+      "styles":["styles"],
+      "utils":["utils"],
+      "assets":["assets"],
+      "pages":["pages"],
+      "store":["store"],
+    },
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
@@ -12,10 +22,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

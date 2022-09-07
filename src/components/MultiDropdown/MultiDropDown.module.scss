@@ -1,0 +1,49 @@
+@import "styles/main.scss";
+$mdd-width: 190px;
+
+.multi_drop_down_wrapper {
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.multi_drop_down_title {
+  cursor: pointer;
+  width: $mdd-width;
+  height: 84px;
+  background: #ffffff;
+  @include shadow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 180%;
+  position: relative;
+}
+
+.multi_drop_down_title:focus {
+  outline: $main-green solid $line-weight;
+}
+
+.multi_drop_down_varians_wrapper {
+  background-color: $light-background;
+  position: absolute;
+  top: $spacing-11;
+  width: $mdd-width;
+  @include shadow;
+}
+
+.multi_drop_down_variant {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 16px;
+  cursor: pointer;
+  &:hover {
+    @include shadow;
+  }
+}
+
+.selected {
+  color: $main-green;
+}
