@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
 
-import s from "@components/MultiDropdown/MultiDropDown.module.scss";
+import s from "components/MultiDropdown/MultiDropDown.module.scss";
 import { Option } from "config/types";
 import classNames from "classnames";
 

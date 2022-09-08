@@ -1,18 +1,18 @@
 import * as React from "react";
-import { render } from "react-dom";
+import * as ReactDOM from 'react-dom/client';
 import 'regenerator-runtime'
 
-import s from './style.module.scss';
+import App from './App';
 
-import engine from 'assets/pics/vlv_eng.jpg'
-import Button from 'components/Button'
+const root = ReactDOM.createRoot(
+    document.getElementById("root") as HTMLElement
+);
 
-render(<div className={s.text}>Test react APP
-    <div className={s.pict}>
-        <img src={engine} alt='eng' />
-        <Button></Button>
-    </div>
-</div>, document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
 
 if (module.hot) {
     module.hot.accept();

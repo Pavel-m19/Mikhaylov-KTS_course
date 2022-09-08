@@ -8,14 +8,12 @@ $input-height: 84px;
   background: #ffffff;
   @include shadow;
   @include secondary-text;
-}
-
-.input:focus {
-  outline: solid $main-green $line-weight;
-  border-radius: 0;
-  @include typo-text-regular-1;
-}
-
-.input:disabled {
-  opacity: $hover-opacity;
+  &:focus {
+    outline: solid $main-green $line-weight;
+    border-radius: 0;
+    @include typo-text-regular-1;
+  };
+  &:disabled {
+    opacity: $hover-opacity;
+  };
 }

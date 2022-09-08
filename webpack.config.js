@@ -78,11 +78,11 @@ module.exports = {
     extensions: ['.ts','.tsx','.js','.jsx'],
     alias: {
       components: path.join(srcPath, 'components'),
-      config: path.join(srcPath, 'cjnfig'),
+      config: path.join(srcPath, 'config'),
       styles: path.join(srcPath, 'styles'),
       utils: path.join(srcPath, 'utils'),
       assets: path.join(srcPath, 'assets'),
-      pages: path.join(srcPath, 'pages'),
+      Pages: path.join(srcPath, 'Pages'),
       store: path.join(srcPath, 'store'),
     }
   },

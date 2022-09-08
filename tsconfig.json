@@ -7,7 +7,7 @@
       "styles":["styles"],
       "utils":["utils"],
       "assets":["assets"],
-      "pages":["pages"],
+      "Pages":["Pages"],
       "store":["store"],
     },
     "allowJs": true,

@@ -2,7 +2,7 @@ import React from "react";
 
 import Loader from "components/Loader";
 import { LoaderSize } from "components/Loader/Loader";
-import s from "@components/WithLoader/WhithLoader.module.scss";
+import s from "./WhithLoader.module.scss";
 
 type WithLoaderProps = {
   loading?: boolean;

@@ -1,0 +1,15 @@
+@import "styles/main.scss";
+
+.app_wrapper {
+  max-width: 1440px;
+  grid-template-areas:
+    "h "
+    "c ";
+  grid-template-rows: 120px 1fr;
+  margin: auto;
+}
+
+.app_content {
+  grid-area: "c";
+  padding: 0 $spacing-11;
+}

@@ -4,11 +4,11 @@ $check-icon-pos: 4px;
 
 .check {
   position: relative;
-}
-.check_box {
-  position: absolute;
-  -webkit-appearance: none;
-  appearance: none;
+  &_box {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+  }
 }
 
 .check_box__image {

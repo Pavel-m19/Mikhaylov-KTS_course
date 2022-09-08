@@ -1,0 +1,38 @@
+@import "styles/main.scss";
+$page-number-height: 42px;
+
+.card__product__paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $spacing-10;
+
+  width: 100%;
+  &__pages_wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &__page {
+    cursor: pointer;
+    width: 38px;
+    height: $page-number-height;
+    @include typo-text-regular-1;
+    line-height: $page-number-height;
+    text-align: center;
+    border: $line-weight solid $main-light-border;
+  }
+  .selected {
+    border: none;
+    cursor: default;
+    background-color: $main-green;
+    color: $light-text;
+  }
+  &__arrow {
+    cursor: pointer;
+    margin: 0 $spacing-9;
+  }
+  .disabled {
+    cursor: default;
+    display: none;
+  }
+}

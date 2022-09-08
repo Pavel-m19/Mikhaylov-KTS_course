@@ -1,0 +1,80 @@
+@import "styles/main.scss";
+$icon-size: 32px;
+$description-width: 600px;
+$description-spacing: 80px;
+
+.cards {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title {
+      margin: $spacing-11 0;
+      @include typo-header-2;
+      text-align: center;
+    }
+    &__text {
+      @include secondary-text;
+      text-align: center;
+      width: $description-width;
+      margin-bottom: $description-spacing;
+    }
+  }
+}
+
+.card_search {
+  &__search_block {
+    display: flex;
+    gap: $spacing-8;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__area {
+    @include shadow;
+    flex: 1;
+    justify-content: space-between;
+    padding: 0 $spacing-8;
+    display: flex;
+    align-items: center;
+    &_icon {
+      display: block;
+      width: $icon-size;
+      height: $icon-size;
+    }
+    &__input {
+      box-shadow: none;
+      flex: 1;
+    }
+    &__input:focus {
+      outline: none;
+    }
+    &__input:focus + .card_search__area {
+      outline: solid $line-weight $main-green;
+    }
+
+    &__cleaner {
+      padding-right: $spacing-6;
+      @include secondary-text;
+      cursor: pointer;
+      &:hover {
+        @include typo-text-regular-2;
+      }
+    }
+
+  }
+
+  &__filter {
+    display: block;
+    &__button {
+      @include typo-text-regular-1;
+    }
+    &__icon {
+      margin-right: $spacing-4;
+    }
+  }
+}

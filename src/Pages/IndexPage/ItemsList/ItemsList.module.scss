@@ -1,0 +1,24 @@
+@import "styles/main.scss";
+
+.card__product_count {
+  margin-top: $spacing-10;
+  @include typo-header;
+  display: flex;
+  align-items: center;
+  &__number {
+    margin-left: $spacing-8;
+    @include typo-text-regular-2;
+    color: $main-green;
+  }
+}
+
+.products_list__wrapper {
+  gap: $spacing-1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.items_list_wrapper {
+  margin-bottom: $spacing-10;
+}
+

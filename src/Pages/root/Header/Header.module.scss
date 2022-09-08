@@ -1,0 +1,83 @@
+@import "styles/main.scss";
+$menu-height: 120px;
+$border-ticknes: 2px;
+$logo-size: 42px;
+$user-icon-size: 32px;
+$menu-width: 460px;
+$menu-elem-width: 90px;
+$menu-elem--min-width: 80px;
+$active-link-underline-gap: 81px;
+
+.header {
+  grid-area: "h";
+  border-bottom: solid $main-light-border $border-ticknes;
+  padding: $spacing-3 $spacing-11 $spacing-3 $spacing-11;
+  height: $menu-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  &__logo_wrapper {
+    display: flex;
+    align-items: center;
+    span {
+      padding-left: $spacing-3;
+      @include typo-text-link;
+    }
+    .header__logo {
+      width: $logo-size;
+      height: $logo-size;
+    }
+  };
+
+  &__menu_wrapper {
+    max-width: $menu-width;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 $spacing-6 0 $spacing-6;
+    flex-basis: $menu-elem-width;
+    flex-grow: 1;
+    a {
+      min-width: $menu-elem--min-width;
+      font-family: "Eudoxus Sans";
+      font-style: normal;
+      @include typo-text-link;
+      text-decoration: none;
+    }
+    :hover {
+      opacity: $hover-opacity;
+      transition: 0.2s;
+    }
+    .selected {
+      color: $main-green;
+      position: relative;
+    }
+    .selected::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: $active-link-underline-gap;
+      width: 100%;
+      height: $border-ticknes;
+      background-color: $main-green;
+    }
+  };
+
+  &__user_wrapper {
+    width: $menu-elem-width;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      img {
+        width: $user-icon-size;
+        height: $user-icon-size;
+      }
+    }
+    :hover {
+      opacity: $hover-opacity;
+      transition: 0.2s;
+    }
+  };
+}

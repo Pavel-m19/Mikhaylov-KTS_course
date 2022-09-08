@@ -1,0 +1,69 @@
+@import "styles/main.scss";
+$picture-size: 600px;
+$rating-box-size: 50px;
+$buttons-width: 285px;
+
+.product {
+  margin-top: $spacing-11;
+  display: flex;
+  gap: $spacing-10;
+  img {
+    object-fit: contain;
+    height: $picture-size;
+    max-width: $picture-size;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-6 0;
+    &__title,
+    &__price {
+      @include typo-header-1;
+    }
+    &__category {
+      margin-top: $spacing-4;
+      @include typo-text-regular-1;
+      color: $main-grey;
+    }
+    &__description {
+      margin-top: $spacing-6;
+      @include typo-text-regular-1;
+      color: $main-grey;
+    }
+    &__price {
+      margin-top: $spacing-9;
+    }
+    &__rating,
+    &__count {
+      display: flex;
+      align-items: center;
+      gap: $spacing-6;
+      margin-top: $spacing-9;
+      @include typo-text-regular-2;
+      .product__info_rating__box {
+        height: $rating-box-size;
+        width: $rating-box-size;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      gap: $spacing-6;
+      margin-top: $spacing-10;
+      width: 100%;
+      justify-content: center;
+      &__cart_button {
+        max-width: $buttons-width;
+        flex: 1;
+      }
+      .white {
+        background-color: #fff;
+        color: $main-text;
+        outline: $main-grey solid $line-weight;
+      }
+      .white:hover {
+        background-color: $main-grey;
+      }
+    }
+  }
+}

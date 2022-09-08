@@ -12,16 +12,15 @@
   color: #ffffff;
   outline: none;
   border: none;
-}
-.button:first-child {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button:hover {
-  opacity: $hover-opacity;
-}
-.button:disabled {
-  background-color: #d9d9d9;
+  &:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  };
+  &:hover {
+    opacity: $hover-opacity;
+  };
+  &:disabled {
+    background-color: #d9d9d9;
+  };
 }
