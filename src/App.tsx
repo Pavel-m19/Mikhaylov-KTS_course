@@ -1,6 +1,6 @@
 import React from "react";
 
-import Root from './Pages/root';
+import Root from './pages/root';
 import "./App.module.scss";
 
 function App() {
