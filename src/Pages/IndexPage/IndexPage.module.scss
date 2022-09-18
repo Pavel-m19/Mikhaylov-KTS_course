@@ -35,6 +35,9 @@ $description-spacing: 80px;
     width: 100%;
   }
   &__area {
+    &:focus-within{
+      @include shadow-large;
+    }
     @include shadow;
     flex: 1;
     justify-content: space-between;
@@ -53,9 +56,6 @@ $description-spacing: 80px;
     &__input:focus {
       outline: none;
     }
-    &__input:focus + .card_search__area {
-      outline: solid $line-weight $main-green;
-    }
 
     &__cleaner {
       padding-right: $spacing-6;
@@ -65,7 +65,6 @@ $description-spacing: 80px;
         @include typo-text-regular-2;
       }
     }
-
   }
 
   &__filter {

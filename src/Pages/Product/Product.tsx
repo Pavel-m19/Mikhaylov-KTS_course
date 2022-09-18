@@ -9,17 +9,15 @@ import classNames from "classnames";
 import { observer, useLocalStore } from "mobx-react-lite";
 import { Navigate, useParams } from "react-router-dom";
 
-
 import s from "./Product.module.scss";
+import Loader from "components/Loader";
 
 const Product = () => {
-
   const productDataStore = useLocalStore(() => new ProductStore());
   const productId: number | undefined = Number(useParams().id);
 
   //выбор цвета квадратика для рейтинга товара
   const ratingColorChoiser = useCallback((rating: number): string => {
-
     rating = Math.floor(rating);
     switch (rating) {
       case 4: {
@@ -45,6 +43,10 @@ const Product = () => {
 
   if (!productId || isNaN(productId)) {
     return <Navigate to={routes.products} replace />;
+  }
+
+  if (!productDataStore.productData && !productDataStore.isLoading) {
+    return <div className={s.product_failure_massage}>Product not found :(</div>
   }
 
   return (
@@ -95,7 +97,6 @@ const Product = () => {
           </div>
         </div>
       )}
-
     </WithLoader>
   );
 };

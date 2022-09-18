@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 import Paginator from "../Paginator";
 import s from "./ItemsList.module.scss";
+import WithLoader from "components/WithLoader";
 
 const countDefaultValue = "wait...";
 
@@ -28,20 +29,23 @@ const ItemsList: React.FC<ItemsListType> = ({
             {!isLoading ? productsCount : countDefaultValue}
           </span>
         </div>
-        <div className={s.products_list__wrapper}>
-          {currentProductsItems.map((elem: ItemInfo) => (
-            <Link to={routes.createProoductPath(elem.id)}>
-              <Card
-                image={elem.image}
-                category={elem.category}
-                title={elem.title}
-                id={elem.id}
-                price={elem.price}
-                key={elem.id}
-              />
-            </Link>
-          ))}
-        </div>
+        <WithLoader loading={isLoading}>
+          <div className={s.products_list__wrapper}>
+            {currentProductsItems.map((elem: ItemInfo) => (
+              <Link to={routes.createProoductPath(elem.id)} 
+              className={s.single_card__wrapper}>
+                <Card
+                  image={elem.image}
+                  category={elem.category}
+                  title={elem.title}
+                  id={elem.id}
+                  price={elem.price}
+                  key={elem.id}
+                />
+              </Link>
+            ))}
+          </div>
+        </WithLoader>
       </div>
       {productsCount > 9 && (
         <Paginator

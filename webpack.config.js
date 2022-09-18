@@ -43,6 +43,7 @@ module.exports = {
   target: !isProd ? "web" : "browserslist",
   devtool: isProd ? "hidden-source-map" : "eval-cheap-source-map",
   output: {
+    publicPath: "/",
     path: buildPath,
     filename: "bundle[contenthash:6].js",
   },

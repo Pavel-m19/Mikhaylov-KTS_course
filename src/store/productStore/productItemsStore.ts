@@ -78,8 +78,12 @@ class ProductItemsStore {
   get currentFilter(): Option[] {
     return this._currentFilter;
   }
+  
+  get searchQuery(): string {
+    return this._searchQuery
+  }
 
-  async fetchItems(pageNum: number = 1, searchQuery: string | undefined) {
+  async fetchItems(pageNum: number = 1) {
     this._isLoading = true;
     const reqests = [
       axios.get(apiRoutes.productList),
@@ -102,7 +106,7 @@ class ProductItemsStore {
       this._allProductsCount = itemsListResponse.data.length;
       this._productsListFromApi = itemsListResponse.data;
       this._allProductsList = itemsListResponse.data;
-      this.search(searchQuery, pageNum);
+      this.search(pageNum);
       this._isLoading = false;
     });
   }
@@ -120,19 +124,23 @@ class ProductItemsStore {
     this.search();
   }
 
+  setSearchQuery(query: string) {
+    this._searchQuery = query    
+  }
+
   cleanSearch() {
     this._currentFilter = [];
     this._allProductsList = this._productsListFromApi;
     this._allProductsCount = this._productsListFromApi.length;
     this.selectPage(1);
+    this._searchQuery = '';
   }
 
-  search(searchQuery: string = this._searchQuery, pageNum: number = 1) {
-    this._searchQuery = searchQuery;
+  search(pageNum: number = 1) {
     let searchResult = this._productsListFromApi.filter((elem) => {
       return (
-        elem.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        elem.description.toLowerCase().includes(searchQuery.toLowerCase())
+        elem.title.toLowerCase().includes(this._searchQuery.toLowerCase()) ||
+        elem.description.toLowerCase().includes(this._searchQuery.toLowerCase())
       );
     });
 

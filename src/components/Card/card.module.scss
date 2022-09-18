@@ -16,7 +16,6 @@ $card-title-height: 100px;
   &_title {
     margin-top: $spacing-5;
     height: $card-title-height;
-    display: box;
     display: flex;
     font-style: normal;
     @include typo-header-3;

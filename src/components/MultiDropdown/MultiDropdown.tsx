@@ -25,9 +25,22 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
   ...attrs
 }) => {
   const [dropDownState, setDropDownState] = useState(false);
+  let firstClickFlag = false;
+
+  const closeByMouse = (e: MouseEvent) => {
+    const target = e.target as Element;
+    if (firstClickFlag && !target.className.includes(s.multi_drop_down_variant)) {
+      firstClickFlag = false;
+      setDropDownState(false);
+      document.removeEventListener("click", closeByMouse);
+    } else {
+      firstClickFlag = true;
+    }
+  };
 
   const handleClick = useCallback(() => {
     setDropDownState((prev) => !prev);
+    !dropDownState && document.addEventListener("click", closeByMouse);
   }, []);
 
   const selectedKeysSet = useMemo(

@@ -12,7 +12,7 @@ svg circle {
   stroke: $main-green;
 }
 
-.loader_size-s {
+.s {
   height: 22px;
   width: 22px;
   r: 9px;
@@ -22,7 +22,7 @@ svg circle {
   stroke-width: 3px;
 }
 
-.loader_size-m {
+.m {
   height: 44px;
   width: 44px;
   r: 20px;
@@ -31,7 +31,7 @@ svg circle {
   stroke-dasharray: 103;
 }
 
-.loader_size-l {
+.l {
   height: 66px;
   width: 66px;
   r: 30px;

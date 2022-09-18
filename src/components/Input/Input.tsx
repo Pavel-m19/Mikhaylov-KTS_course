@@ -6,6 +6,8 @@ import classNames from "classnames";
 type InputProps = {
   value: string;
   onChange: (value: string) => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
   className?: string;
   disabled?: boolean;
   placeholder?: string;
@@ -14,6 +16,8 @@ type InputProps = {
 const Input: React.FC<InputProps> = ({
   value,
   onChange,
+  onFocus,
+  onBlur,
   className,
   disabled,
   placeholder,
@@ -37,6 +41,8 @@ const Input: React.FC<InputProps> = ({
       disabled={disabled}
       type="text"
       value={value}
+      onFocus={onFocus}
+      onBlur={onBlur}
       onChange={handleChanger}
       className={inputClasses}
     />

@@ -21,7 +21,7 @@ const Loader: React.FC<LoaderProps> = ({
   loading,
   ...attrs
 }) => {
-  let loaderClasses = classNames(s.loader, className, size);
+  let loaderClasses = classNames(s[size], className);
 
   return loading !== false ? (
     <svg {...attrs} className={loaderClasses}>
