@@ -1,6 +1,4 @@
-
 import React, { useCallback, useEffect } from "react";
-
 
 import Button from "components/Button";
 import Input from "components/Input/Input";
@@ -26,19 +24,24 @@ const IndexList = () => {
 
   const pageNum: string | null =
     searchParams.get(pageQueryParam) || defaultPageNumber;
-  const searchQuery: string | undefined =
-    searchParams.get(searchQueryParam) || undefined;
+
+  const onEnterClickSearch = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      startSearch();
+    }
+  };
 
   const selectPage = useCallback(
     (pageNum: number) => {
       setSearchParams({
-        ...searchParams,
+        ...Object.fromEntries([...searchParams]),
         page: String(pageNum),
       });
       productsItemsStore.selectPage(pageNum);
       window.scrollTo(0, 0);
     },
-    [searchQuery, pageNum]
+    [pageNum, searchParams]
   );
 
   const cleanSearch = useCallback(() => {
@@ -47,77 +50,92 @@ const IndexList = () => {
   }, []);
 
   const searchHandleChange = useCallback((e: string) => {
-    setSearchParams({ page: defaultPageNumber, search: e });
+    productsItemsStore.setSearchQuery(e);
   }, []);
 
   const startSearch = useCallback(() => {
-    searchQuery &&
-      productsItemsStore.search(searchQuery, Number(defaultPageNumber));
-  }, [searchQuery]);
-
-  useEffect(() => {
-    productsItemsStore.fetchItems(Number(pageNum), searchQuery);
+    setSearchParams({
+      page: defaultPageNumber,
+      search: productsItemsStore.searchQuery,
+    });
+    productsItemsStore.search(Number(defaultPageNumber));
   }, []);
 
+  const handleSearchFocus = () => {
+    document.body.addEventListener("keydown", onEnterClickSearch);
+  };
+
+  const handleSearchBlur = () => {
+    document.body.removeEventListener("keydown", onEnterClickSearch);
+  };
+
+  useEffect(() => {
+    productsItemsStore.fetchItems(Number(pageNum));
+    productsItemsStore.setSearchQuery(searchParams.get(searchQueryParam) ?? "");
+  }, [searchParams]);
 
   return (
-    <div className={s.cards__wrapper}>
-      <div className={s.cards__description}>
-        <div className={s.cards__description__title}>Products</div>
-        <div className={s.cards__description__text}>
-          We display products based on the latest products we have, if you want
-          to see our old products please enter the name of the item
+    <div>
+      <div className={s.cards__wrapper}>
+        <div className={s.cards__description}>
+          <div className={s.cards__description__title}>Products</div>
+          <div className={s.cards__description__text}>
+            We display products based on the latest products we have, if you
+            want to see our old products please enter the name of the item
+          </div>
         </div>
-      </div>
-      <div className={s.card_search__search_block}>
-        <div className={s.card_search__area}>
-          <img
-            className={s.card_search__area_icon}
-            src={searchIcon}
-            alt="search"
-          />
-          <Input
-            value={searchQuery ?? ""}
-            placeholder="search property"
-            onChange={searchHandleChange}
-            className={s.card_search__area__input}
-          />
-          {searchQuery && (
-            <div className={s.card_search__area__cleaner} onClick={cleanSearch}>
-              X
-            </div>
-          )}
-          <Button onClick={startSearch}>Find now</Button>
-        </div>
-        <div className={s.card_search__filter}>
-          <MultiDropdown
-            options={productsItemsStore.categories}
-            value={productsItemsStore.currentFilter}
-            pluralizeOptions={optionsListName}
-            onChange={productsItemsStore.setFilter}
-
-            className={s.card_search__filter__button}
-          >
+        <div className={s.card_search__search_block}>
+          <div className={s.card_search__area}>
             <img
-              className={s.card_search__filter__icon}
-              src={filterIcon}
-              alt="filter"
+              className={s.card_search__area_icon}
+              src={searchIcon}
+              alt="search"
             />
-          </MultiDropdown>
+            <Input
+              value={productsItemsStore.searchQuery}
+              placeholder="search property"
+              onChange={searchHandleChange}
+              onFocus={handleSearchFocus}
+              onBlur={handleSearchBlur}
+              className={s.card_search__area__input}
+            />
+            {productsItemsStore.searchQuery && (
+              <div
+                className={s.card_search__area__cleaner}
+                onClick={cleanSearch}
+              >
+                X
+              </div>
+            )}
+            <Button onClick={startSearch}>Find now</Button>
+          </div>
+          <div className={s.card_search__filter}>
+            <MultiDropdown
+              options={productsItemsStore.categories}
+              value={productsItemsStore.currentFilter}
+              pluralizeOptions={optionsListName}
+              onChange={productsItemsStore.setFilter}
+              className={s.card_search__filter__button}
+            >
+              <img
+                className={s.card_search__filter__icon}
+                src={filterIcon}
+                alt="filter"
+              />
+            </MultiDropdown>
+          </div>
         </div>
+
+        <ItemsList
+          currentProductsItems={productsItemsStore.currentProductsItems}
+          productsCount={productsItemsStore.allProductsCount}
+          pageNumber={productsItemsStore.pageNumber}
+          selectPage={selectPage}
+          isLoading={productsItemsStore.isLoading}
+        />
       </div>
-
-      <ItemsList
-        currentProductsItems={productsItemsStore.currentProductsItems}
-        productsCount={productsItemsStore.allProductsCount}
-        pageNumber={productsItemsStore.pageNumber}
-        selectPage={selectPage}
-        isLoading={productsItemsStore.isLoading}
-      />
-
     </div>
   );
 };
-
 
 export default observer(IndexList);

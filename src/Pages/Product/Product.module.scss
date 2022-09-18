@@ -2,17 +2,22 @@
 $picture-size: 600px;
 $rating-box-size: 50px;
 $buttons-width: 285px;
+$info_block_width: 660px;
 
 .product {
   margin-top: $spacing-11;
   display: flex;
+  flex-wrap: wrap;
   gap: $spacing-10;
   img {
+    margin: auto;
     object-fit: contain;
     height: $picture-size;
     max-width: $picture-size;
   }
   &__info {
+    margin: auto;
+    max-width: $info_block_width;
     display: flex;
     flex-direction: column;
     padding: $spacing-6 0;
@@ -65,5 +70,11 @@ $buttons-width: 285px;
         background-color: $main-grey;
       }
     }
+  }
+
+  &_failure_massage{
+    @include secondary-text-2;
+    margin-top: $spacing-11;
+    text-align: center;
   }
 }

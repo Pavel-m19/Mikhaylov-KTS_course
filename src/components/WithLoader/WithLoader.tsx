@@ -16,9 +16,9 @@ export const WithLoader: React.FC<WithLoaderProps> = ({
   ...args
 }) => {
   return (
-    <div {...args} className={s.whithLoader}>
+    <div {...args} className={s.whith_loader}>
       {loading !== true && children}
-      {loading && <Loader size={LoaderSize.l} className="whithLoader_pop" />}
+      {loading && <Loader size={LoaderSize.l} />}
     </div>
   );
 };

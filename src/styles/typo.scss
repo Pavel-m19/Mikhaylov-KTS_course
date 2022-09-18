@@ -62,3 +62,10 @@
   line-height: 32px;
   color: $main-grey;
 }
+
+@mixin secondary-text-2 {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 50px;
+  color: $main-grey;
+}
