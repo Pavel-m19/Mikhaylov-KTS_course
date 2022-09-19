@@ -38,7 +38,7 @@ const IndexList = () => {
         ...Object.fromEntries([...searchParams]),
         page: String(pageNum),
       });
-      productsItemsStore.selectPage(pageNum);
+      // productsItemsStore.selectPage(pageNum);
       window.scrollTo(0, 0);
     },
     [pageNum, searchParams]
@@ -58,7 +58,7 @@ const IndexList = () => {
       page: defaultPageNumber,
       search: productsItemsStore.searchQuery,
     });
-    productsItemsStore.search(Number(defaultPageNumber));
+    // productsItemsStore.search(Number(defaultPageNumber));
   }, []);
 
   const handleSearchFocus = () => {
@@ -72,6 +72,11 @@ const IndexList = () => {
   useEffect(() => {
     productsItemsStore.fetchItems(Number(pageNum));
     productsItemsStore.setSearchQuery(searchParams.get(searchQueryParam) ?? "");
+  }, []);
+
+  useEffect(() => {
+    productsItemsStore.setSearchQuery(searchParams.get(searchQueryParam) ?? "")
+    productsItemsStore.search(Number(pageNum));
   }, [searchParams]);
 
   return (

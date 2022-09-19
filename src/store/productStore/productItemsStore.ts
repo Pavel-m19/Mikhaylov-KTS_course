@@ -132,7 +132,6 @@ class ProductItemsStore {
     this._currentFilter = [];
     this._allProductsList = this._productsListFromApi;
     this._allProductsCount = this._productsListFromApi.length;
-    this.selectPage(1);
     this._searchQuery = '';
   }
 
