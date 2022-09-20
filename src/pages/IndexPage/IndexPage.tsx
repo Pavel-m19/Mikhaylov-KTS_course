@@ -18,7 +18,11 @@ const searchQueryParam = "search";
 const defaultPageNumber = "1";
 
 const IndexList = () => {
-  const optionsListName = useCallback(() => "category", []);
+  const optionsListName = useCallback(() => {
+    return `category${productsItemsStore.currentFilter.length !== 0 ?
+      ` :${productsItemsStore.currentFilter.length}` :
+      ''}`
+  }, []);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const productsItemsStore = useLocalStore(() => new ProductItemsStore());
@@ -111,7 +115,7 @@ const IndexList = () => {
                 X
               </div>
             )}
-            <Button onClick={startSearch}>Find now</Button>
+            <Button onClick={startSearch} disabled={productsItemsStore.searchQuery === ''}>Find now</Button>
           </div>
           <div className={s.card_search__filter}>
             <MultiDropdown
