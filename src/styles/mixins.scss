@@ -5,3 +5,7 @@
 @mixin shadow-large {
     box-shadow: 0px 0px 40px rgba(117, 116, 120, 0.599);
 }
+
+@mixin grey-border {
+    border: solid 1px $main-grey
+}

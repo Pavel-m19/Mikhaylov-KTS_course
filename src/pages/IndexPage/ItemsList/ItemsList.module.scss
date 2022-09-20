@@ -1,7 +1,6 @@
 @import "styles/main.scss";
 
 .card__product_count {
-  margin-top: $spacing-10;
   @include typo-header;
   display: flex;
   align-items: center;

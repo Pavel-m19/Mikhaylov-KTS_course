@@ -11,6 +11,7 @@ import { useSearchParams } from "react-router-dom";
 
 import s from "./IndexPage.module.scss";
 import ItemsList from "./ItemsList/ItemsList";
+import CurrentCategories from "./currentCategories";
 
 const pageQueryParam = "page";
 const searchQueryParam = "search";
@@ -38,7 +39,6 @@ const IndexList = () => {
         ...Object.fromEntries([...searchParams]),
         page: String(pageNum),
       });
-      // productsItemsStore.selectPage(pageNum);
       window.scrollTo(0, 0);
     },
     [pageNum, searchParams]
@@ -58,7 +58,6 @@ const IndexList = () => {
       page: defaultPageNumber,
       search: productsItemsStore.searchQuery,
     });
-    // productsItemsStore.search(Number(defaultPageNumber));
   }, []);
 
   const handleSearchFocus = () => {
@@ -130,6 +129,9 @@ const IndexList = () => {
             </MultiDropdown>
           </div>
         </div>
+        <CurrentCategories
+          curretCategories={productsItemsStore.currentFilter}
+          onChange={productsItemsStore.setFilter} />
 
         <ItemsList
           currentProductsItems={productsItemsStore.currentProductsItems}
