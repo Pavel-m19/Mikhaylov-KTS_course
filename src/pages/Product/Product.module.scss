@@ -5,7 +5,7 @@ $buttons-width: 285px;
 $info_block_width: 660px;
 
 .product {
-  margin-top: $spacing-11;
+  margin: $spacing-1 0 $spacing-11 0;
   display: flex;
   flex-wrap: wrap;
   gap: $spacing-10;
