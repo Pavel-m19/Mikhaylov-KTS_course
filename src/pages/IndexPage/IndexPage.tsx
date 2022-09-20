@@ -43,7 +43,8 @@ const IndexList = () => {
         ...Object.fromEntries([...searchParams]),
         page: String(pageNum),
       });
-      window.scrollTo(0, 0);
+      const topCoordinate = document.querySelector(`.${s.cards__wrapper}`)?.getBoundingClientRect().top
+      window.scrollTo(0, topCoordinate ? topCoordinate + window.pageYOffset + 100  : 100);
     },
     [pageNum, searchParams]
   );
