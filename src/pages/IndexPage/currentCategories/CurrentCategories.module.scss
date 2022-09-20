@@ -1,0 +1,35 @@
+@import "styles/main.scss";
+$height: 75px;
+
+%text-style {
+    @include secondary-text;
+}
+
+.current_categories {
+    padding-top: $spacing-2;
+    min-height: $height;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing-6;
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: $spacing-3 $spacing-4;
+        @include grey-border;
+    }
+    &__category_name {
+       @extend %text-style
+    }
+    &__close_button {
+        width: 15px;
+        padding-left: $spacing-2;
+        text-align: center;
+        @extend %text-style;
+        cursor: pointer;
+        &:hover {
+            color: $main-green;
+            font-size: 25px;
+        }
+    }
+}
